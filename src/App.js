@@ -16,10 +16,31 @@ class App extends Component {
       greenSymbols: 0,
       redSymbols: 0,
       whiteSymbols: 0,
-      greySymbols: 0
+      wasteSymbols: 0,
+
+      blackLands: 0,
+      blueLands: 0,
+      greenLands: 0,
+      redLands: 0,
+      whiteLands: 0,
+      wasteLands: 0
 
       }
   }
+
+  /*
+
+  onChange = (e) => {
+
+    let val = e.target.value;
+    let id = e.target.id;
+
+    this.setStae( [id + "Symbols"]: val);
+
+  }
+
+  */
+
   render() {
 
     return (
