@@ -17,7 +17,7 @@ class App extends Component {
       greenSymbols: 0,
       redSymbols: 0,
       whiteSymbols: 0,
-      wasteSymbols: 0,
+      greySymbols: 0,
 
       blackLands: 0,
       blueLands: 0,
@@ -29,18 +29,20 @@ class App extends Component {
       }
   }
 
-  onNumSymbolsChange = e => {
+  onNumSymbolsChange = (e) => {
 
     let val = e.target.value;
     let id = e.target.id;
 
     console.log("Input changed - " + id + "Symbols is now " + val);
-    this.setState( [id + "Symbols"]: val);
+    this.setState({ [id + "Symbols"]: val});
 
   }
 
 
   render() {
+
+    let { blackSymbols, blueSymbols, greenSymbols, redSymbols, whiteSymbols, greySymbols} = this.state;
 
     return (
 
@@ -54,12 +56,12 @@ class App extends Component {
 
         </header>
 
-        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange}/>
-        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange}/>
-        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange}/>
-        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange}/>
-        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange}/>
-        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange}/>
+        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols}/>
+        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols}/>
+        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols}/>
+        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols}/>
+        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols}/>
+        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols}/>
 
       </div>
     );

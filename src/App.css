@@ -55,8 +55,8 @@
 .whiteRowClass {
   background-color: white;
 }
-.darkGreyRowClass {
-  background-color: gray;
+.greyRowClass {
+  background-color: #606060;
 }
 
 .Flex-item {
