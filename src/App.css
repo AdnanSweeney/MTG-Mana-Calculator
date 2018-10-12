@@ -40,22 +40,22 @@
 .ActiveRow {
   border-top: 2px solid red;}
 
-.GreenRowClass {
+.greenRowClass {
   background-color: green;
 }
-.RedRowClass {
+.redRowClass {
   background-color: red;
 }
-.BlueRowClass {
+.blueRowClass {
   background-color: blue;
 }
-.BlackRowClass {
+.blackRowClass {
   background-color: black;
 }
-.WhiteRowClass {
+.whiteRowClass {
   background-color: white;
 }
-.DarkGreyRowClass {
+.darkGreyRowClass {
   background-color: gray;
 }
 

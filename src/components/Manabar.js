@@ -15,7 +15,7 @@ class ManaBar extends React.Component {
 				</div>
 
 				<div className="Flex-item">
-					<input id={this.props.colour} className="Text-box" type="text" />
+					<input id={this.props.colour} type="number" onChange={this.props.onNumSymbolsChange} className="Text-box" />
 				</div>
 
 				<div className="Flex-item">

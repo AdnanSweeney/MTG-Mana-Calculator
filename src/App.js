@@ -29,18 +29,16 @@ class App extends Component {
       }
   }
 
-  /*
-
-  onChange = (e) => {
+  onNumSymbolsChange = e => {
 
     let val = e.target.value;
     let id = e.target.id;
 
-    this.setStae( [id + "Symbols"]: val);
+    console.log("Input changed - " + id + "Symbols is now " + val);
+    this.setState( [id + "Symbols"]: val);
 
   }
 
-  */
 
   render() {
 
@@ -56,12 +54,12 @@ class App extends Component {
 
         </header>
 
-        <Manabar colour="Blue" />
-        <Manabar colour="Red" />
-        <Manabar colour="Green" />
-        <Manabar colour="Black" />
-        <Manabar colour="White" />
-        <Manabar colour="DarkGrey" />
+        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange}/>
+        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange}/>
+        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange}/>
+        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange}/>
+        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange}/>
+        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange}/>
 
       </div>
     );
