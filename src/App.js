@@ -24,7 +24,7 @@ class App extends Component {
       greenLands: 0,
       redLands: 0,
       whiteLands: 0,
-      wasteLands: 0
+      greyLands: 0
 
       }
   }
@@ -34,15 +34,18 @@ class App extends Component {
     let val = e.target.value;
     let id = e.target.id;
 
+    // For now we don't have a calculation - we set landCount = numSymbols
     console.log("Input changed - " + id + "Symbols is now " + val);
-    this.setState({ [id + "Symbols"]: val});
+    this.setState({ [id + "Symbols"]: val,
+                    [id + "Lands"]: val });
 
   }
 
 
   render() {
 
-    let { blackSymbols, blueSymbols, greenSymbols, redSymbols, whiteSymbols, greySymbols} = this.state;
+    let { blackSymbols, blueSymbols, greenSymbols, redSymbols, whiteSymbols, greySymbols,
+          blackLands, blueLands, greenLands, redLands, whiteLands, greyLands } = this.state;
 
     return (
 
@@ -56,12 +59,12 @@ class App extends Component {
 
         </header>
 
-        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols}/>
-        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols}/>
-        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols}/>
-        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols}/>
-        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols}/>
-        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols}/>
+        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
+        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
+        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
+        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
+        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
+        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
 
       </div>
     );

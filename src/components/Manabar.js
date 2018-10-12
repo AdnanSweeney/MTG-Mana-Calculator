@@ -4,7 +4,6 @@ import '../App.css';
 
 class ManaBar extends React.Component {
 
-
 	// getActiveClassName returns a string that add classes to the Flex Row base on landCount
 	getActiveClassName() {
 
@@ -19,7 +18,6 @@ class ManaBar extends React.Component {
 			className += this.props.colour + "RowClass";
 		}
 
-		console.log("we are adding the following style to the manabar - " + className);
 		return className;
 	}
 
@@ -38,7 +36,7 @@ class ManaBar extends React.Component {
 				</div>
 
 				<div className="Flex-item">
-					<input className="Text-box" type="text" readOnly />
+					<input className="Text-box" type="text" value={!this.props.landCount ? null : this.props.landCount} readOnly />
 				</div>
 
 			</div>
