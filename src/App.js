@@ -36,8 +36,14 @@ class App extends Component {
 
     // For now we don't have a calculation - we set landCount = numSymbols
     console.log("Input changed - " + id + "Symbols is now " + val);
-    this.setState({ [id + "Symbols"]: val,
-                    [id + "Lands"]: val });
+    this.setState({ [id + "Symbols"]: val }, () => {
+
+      this.setState({ [id + "Lands"]: this.state.blackSymbols + this.state.whiteSymbols +
+                                      this.state.blueSymbols + this.state.redSymbols +
+                                      this.state.greenSymbols + this.state.greySymbols - val})
+        }
+
+      );
 
   }
 
