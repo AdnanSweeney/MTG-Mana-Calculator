@@ -12,10 +12,9 @@ class ManaBar extends React.Component {
 
 		console.log("Props we receive from parent: " + this.props.numSymbols);
 		// If numSymbols > 1 then add CSS layers to that row
-		if (this.props.numSymbols !== 0) {
+		if (this.props.numSymbols) {
 
-			// className += "ActiveRow ";
-			className += this.props.colour + "RowClass";
+			className = "ActiveRow";
 		}
 
 		return className;
@@ -25,7 +24,7 @@ class ManaBar extends React.Component {
 
 		return (
 
-			<div className={"Flex-row " + this.getActiveClassName()}>
+			<div className={"Flex-row " + this.props.colour + "RowClass " + this.getActiveClassName()}>
 
 				<div className="Flex-item Flex-mana-logo">
 					<img src={logo} className="Mana-logo" alt="logo" />
