@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Manabar from './components/Manabar.js';
+import { calculateLandsFromSymbols } from './helpers/calculateLandsFromSymbols';
 
 class App extends Component {
 
@@ -31,22 +32,27 @@ class App extends Component {
 
   onNumSymbolsChange = (e) => {
 
-    let val = e.target.value;
+    // Parse the input field value as a number to allow mathematic operations
+    let val = Number(e.target.value);
     let id = e.target.id;
 
     // For now we don't have a calculation - we set landCount = numSymbols
     console.log("Input changed - " + id + "Symbols is now " + val);
     this.setState({ [id + "Symbols"]: val }, () => {
 
-      this.setState({ [id + "Lands"]: this.state.blackSymbols + this.state.whiteSymbols +
-                                      this.state.blueSymbols + this.state.redSymbols +
-                                      this.state.greenSymbols + this.state.greySymbols - val})
-        }
+      let numLandsJson =  calculateLandsFromSymbols(  
+                            this.state.totalLandCount,
+                            this.state.blueSymbols,
+                            this.state.redSymbols,
+                            this.state.greenSymbols,
+                            this.state.blackSymbols,
+                            this.state.whiteSymbols,
+                            this.state.greySymbols );
 
-      );
-
+      this.setState( numLandsJson );
+      
+    });
   }
-
 
   render() {
 
@@ -61,7 +67,7 @@ class App extends Component {
 
           <img src={logo} className="App-logo" alt="logo" />
 
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title"> Mana Calculator </h1>
 
         </header>
 
