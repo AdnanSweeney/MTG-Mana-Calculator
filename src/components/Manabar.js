@@ -35,7 +35,7 @@ class ManaBar extends React.Component {
 				</div>
 
 				<div className="Flex-item">
-					<input className="Text-box" type="text" value={!this.props.landCount ? null : this.props.landCount} readOnly />
+					<input className="Text-box" type="text" value={!this.props.landCount ? "" : this.props.landCount} readOnly />
 				</div>
 
 			</div>
