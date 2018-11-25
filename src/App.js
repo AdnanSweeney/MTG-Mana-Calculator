@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import card from './card.svg';
 import './App.css';
+import Manabar from './components/Manabar.js';
+import { calculateLandsFromSymbols } from './helpers/calculateLandsFromSymbols';
 
 class App extends Component {
 
@@ -16,32 +19,56 @@ class App extends Component {
       greenSymbols: 0,
       redSymbols: 0,
       whiteSymbols: 0,
-      wasteSymbols: 0,
+      greySymbols: 0,
 
       blackLands: 0,
       blueLands: 0,
       greenLands: 0,
       redLands: 0,
       whiteLands: 0,
-      wasteLands: 0
+      greyLands: 0
 
       }
   }
 
-  /*
+  onNumSymbolsChange = (e) => {
 
-  onChange = (e) => {
-
-    let val = e.target.value;
+    // Parse the input field value as a number to allow mathematic operations
+    let val = Number(e.target.value);
     let id = e.target.id;
 
-    this.setStae( [id + "Symbols"]: val);
+    if (id !== "totalLandCount") {
+
+      id += "Symbols";
+
+    }
+
+    // Update state then re-calculate required lands after state has changed
+    console.log("Input changed - " + id + "Symbols is now " + val);
+    this.setState({ [id]: val }, () => {
+
+      let numLandsJson =  calculateLandsFromSymbols(  
+                            this.state.totalLandCount,
+                            this.state.blueSymbols,
+                            this.state.redSymbols,
+                            this.state.greenSymbols,
+                            this.state.blackSymbols,
+                            this.state.whiteSymbols,
+                            this.state.greySymbols );
+
+      this.setState( numLandsJson );
+
+      console.log(this.state);
+      
+    });
 
   }
 
-  */
 
   render() {
+
+    let { blackSymbols, blueSymbols, greenSymbols, redSymbols, whiteSymbols, greySymbols,
+          blackLands, blueLands, greenLands, redLands, whiteLands, greyLands } = this.state;
 
     return (
 
@@ -49,17 +76,26 @@ class App extends Component {
 
         <header className="App-header">
 
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={card} className="App-logo" alt="logo" />
 
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title"> Mana Calculator </h1>
+
+          <br />
+
+          <div className={"Flex-row ActiveRow"} style={{justifyContent: "space-between", boxShadow: "0px 0px 0px 0px"}}>
+            <h1 className="App-title"> Total Lands </h1>
+            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" />
+          </div>
 
         </header>
+       
 
-        <p className="App-intro">
-
-          To get started, edit <code>src/App.js</code> and save to reload.
-
-        </p>
+        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
+        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
+        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
+        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
+        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
+        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
 
       </div>
     );

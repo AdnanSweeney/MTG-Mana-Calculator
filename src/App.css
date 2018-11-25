@@ -1,5 +1,11 @@
+div {
+  /*border: 1px solid red;*/
+}
+
 .App {
   text-align: center;
+  padding: 10px;
+  background-color: #7600ed;
 }
 
 .App-logo {
@@ -8,10 +14,12 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #7600ed;
+  height: 225px;
   padding: 20px;
   color: white;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .App-title {
@@ -25,4 +33,68 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+/* Manabar  */
+
+.Flex-row {
+  box-sizing: border-box;
+  display: flex;
+  height: 75px;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0.4;
+  border: 2px solid black;
+}
+
+.ActiveRow {
+  opacity: 1;
+  border: 0px;
+}
+
+.greenRowClass {
+  background-color: hsla(88, 100%, 67%, 1);
+}
+.redRowClass {
+  background-color: hsla(360, 85%, 65%, 1);
+}
+.blueRowClass {
+  background-color: hsla(207, 90%, 61%, 1);
+}
+.blackRowClass {
+  background-color: hsla(0, 0%, 19%, 1);
+}
+.whiteRowClass {
+  background-color: hsla(0, 0%, 96%, 1);
+  border: 1px solid lightgray;
+}
+.greyRowClass {
+  background-color: hsla(0, 0%, 37%, 1);
+}
+
+.Flex-item {
+  flex: 3 1 auto;
+  /* padding: 3%;*/
+  margin: auto;
+}
+
+.Flex-mana-logo {
+  flex: 1 1 auto;
+}
+
+/* Manabar Items */
+
+.Mana-logo {
+  height: 50px;
+}
+
+.Text-box {
+  width: 80px;
+  height: 30px;
+  font-size: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
