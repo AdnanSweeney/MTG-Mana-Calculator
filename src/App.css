@@ -1,7 +1,11 @@
+div {
+  /*border: 1px solid red;*/
+}
+
 .App {
   text-align: center;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: #7600ed;
 }
 
 .App-logo {
@@ -10,8 +14,8 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #7600ed;
+  height: 225px;
   padding: 20px;
   color: white;
   border-radius: 10px;

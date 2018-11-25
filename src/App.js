@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import card from './card.svg';
 import './App.css';
 import Manabar from './components/Manabar.js';
 import { calculateLandsFromSymbols } from './helpers/calculateLandsFromSymbols';
@@ -36,9 +37,15 @@ class App extends Component {
     let val = Number(e.target.value);
     let id = e.target.id;
 
-    // For now we don't have a calculation - we set landCount = numSymbols
+    if (id !== "totalLandCount") {
+
+      id += "Symbols";
+
+    }
+
+    // Update state then re-calculate required lands after state has changed
     console.log("Input changed - " + id + "Symbols is now " + val);
-    this.setState({ [id + "Symbols"]: val }, () => {
+    this.setState({ [id]: val }, () => {
 
       let numLandsJson =  calculateLandsFromSymbols(  
                             this.state.totalLandCount,
@@ -50,9 +57,13 @@ class App extends Component {
                             this.state.greySymbols );
 
       this.setState( numLandsJson );
+
+      console.log(this.state);
       
     });
+
   }
+
 
   render() {
 
@@ -65,11 +76,19 @@ class App extends Component {
 
         <header className="App-header">
 
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={card} className="App-logo" alt="logo" />
 
           <h1 className="App-title"> Mana Calculator </h1>
 
+          <br />
+
+          <div className={"Flex-row ActiveRow"} style={{justifyContent: "space-between", boxShadow: "0px 0px 0px 0px"}}>
+            <h1 className="App-title"> Total Lands </h1>
+            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" />
+          </div>
+
         </header>
+       
 
         <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
         <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
