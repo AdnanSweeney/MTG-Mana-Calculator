@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../App.css';
 
 class ManaBar extends React.Component {
@@ -27,11 +26,11 @@ class ManaBar extends React.Component {
 			<div className={"Flex-row " + this.props.colour + "RowClass " + this.getActiveClassName()}>
 
 				<div className="Flex-item Flex-mana-logo">
-					<img src={logo} className="Mana-logo" alt="logo" />
+					<img src={this.props.icon} className="Mana-logo" alt="icon" />
 				</div>
 
 				<div className="Flex-item">
-					<input id={this.props.colour} type="number" onChange={this.props.onNumSymbolsChange} className="Text-box" />
+					<input id={this.props.colour} type="number" onChange={this.props.onNumSymbolsChange} className="Text-box" onFocus={e => { e.target.select() }} />
 				</div>
 
 				<div className="Flex-item">

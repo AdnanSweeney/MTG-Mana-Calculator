@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import card from './card.svg';
+import logo from './assets/logo.svg';
+import card from './assets/card.svg';
+import flame from './assets/flame.svg';
+import skull from './assets/skull.svg';
+import sun from './assets/sun.svg';
+import tree from './assets/tree.svg';
+import water from './assets/water.svg';
+import cube from './assets/cube.svg';
+
 import './App.css';
 import Manabar from './components/Manabar.js';
 import { calculateLandsFromSymbols } from './helpers/calculateLandsFromSymbols';
@@ -64,7 +71,6 @@ class App extends Component {
 
   }
 
-
   render() {
 
     let { blackSymbols, blueSymbols, greenSymbols, redSymbols, whiteSymbols, greySymbols,
@@ -84,18 +90,18 @@ class App extends Component {
 
           <div className={"Flex-row ActiveRow"} style={{justifyContent: "space-between", boxShadow: "0px 0px 0px 0px"}}>
             <h1 className="App-title"> Total Lands </h1>
-            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" />
+            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }}/>
           </div>
 
         </header>
        
 
-        <Manabar colour="blue" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
-        <Manabar colour="red" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
-        <Manabar colour="green" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
-        <Manabar colour="black" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
-        <Manabar colour="white" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
-        <Manabar colour="grey" onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
+        <Manabar colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
+        <Manabar colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
+        <Manabar colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
+        <Manabar colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
+        <Manabar colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
+        <Manabar colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
 
       </div>
     );
