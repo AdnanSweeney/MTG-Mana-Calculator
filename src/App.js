@@ -90,18 +90,18 @@ class App extends Component {
 
           <div className={"Flex-row ActiveRow"} style={{justifyContent: "space-between", boxShadow: "0px 0px 0px 0px"}}>
             <h1 className="App-title"> Total Lands </h1>
-            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }}/>
+            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={1}/>
           </div>
 
         </header>
        
-
-        <Manabar colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
-        <Manabar colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
-        <Manabar colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
-        <Manabar colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
-        <Manabar colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
-        <Manabar colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
+        {/* We should be using a map here to create multiple manabars*/}
+        <Manabar tabIndex={2} colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
+        <Manabar tabIndex={3} colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
+        <Manabar tabIndex={4} colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
+        <Manabar tabIndex={5} colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
+        <Manabar tabIndex={6} colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
+        <Manabar tabIndex={7} colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
 
       </div>
     );
