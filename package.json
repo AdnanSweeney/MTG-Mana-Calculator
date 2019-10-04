@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "gh-pages": "^2.1.1",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-scripts": "1.1.5"
   },
   "homepage": "http://adnansweeney.github.io/MTG-Mana-Calculator/",
