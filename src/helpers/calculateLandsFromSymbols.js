@@ -6,12 +6,12 @@ export function calculateLandsFromSymbols(numLands, blueSymbols, redSymbols, gre
 
   if (totalSymbols !== 0) {
 
-  	numLandsJson.blueLands  = Math.round(blueSymbols  * numLands / totalSymbols);
-	numLandsJson.redLands   = Math.round(redSymbols   * numLands / totalSymbols);
-	numLandsJson.greenLands = Math.round(greenSymbols * numLands / totalSymbols);
-	numLandsJson.blackLands = Math.round(blackSymbols * numLands / totalSymbols);
-	numLandsJson.whiteLands = Math.round(whiteSymbols * numLands / totalSymbols);
-	numLandsJson.greyLands  = Math.round(greySymbols  * numLands / totalSymbols);
+  	numLandsJson.blueLands  = (blueSymbols  * numLands / totalSymbols).toFixed(2);
+	numLandsJson.redLands   = (redSymbols   * numLands / totalSymbols).toFixed(2);
+	numLandsJson.greenLands = (greenSymbols * numLands / totalSymbols).toFixed(2);
+	numLandsJson.blackLands = (blackSymbols * numLands / totalSymbols).toFixed(2);
+	numLandsJson.whiteLands = (whiteSymbols * numLands / totalSymbols).toFixed(2);
+	numLandsJson.greyLands  = (greySymbols  * numLands / totalSymbols).toFixed(2);
 
   }
   
