@@ -54,14 +54,17 @@ class App extends Component {
     console.log("Input changed - " + id + "Symbols is now " + val);
     this.setState({ [id]: val }, () => {
 
-      let numLandsJson =  calculateLandsFromSymbols(  
-                            this.state.totalLandCount,
-                            this.state.blueSymbols,
-                            this.state.redSymbols,
-                            this.state.greenSymbols,
-                            this.state.blackSymbols,
-                            this.state.whiteSymbols,
-                            this.state.greySymbols );
+      let numLandsJson =  
+      
+        calculateLandsFromSymbols(  
+          this.state.totalLandCount,
+          this.state.blueSymbols,
+          this.state.redSymbols,
+          this.state.greenSymbols,
+          this.state.blackSymbols,
+          this.state.whiteSymbols,
+          this.state.greySymbols 
+          );
 
       this.setState( numLandsJson );
 
@@ -89,7 +92,7 @@ class App extends Component {
           <br />
 
           <div className={"Flex-row ActiveRow"} style={{justifyContent: "space-between", boxShadow: "0px 0px 0px 0px"}}>
-            <h1 className="App-title"> Total Lands </h1>
+            <h1 className="Lands-title"> Total Lands </h1>
             <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={1}/>
           </div>
 
