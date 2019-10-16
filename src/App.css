@@ -15,14 +15,18 @@ div {
 
 .App-header {
   background-color: #7600ed;
-  height: 225px;
-  padding: 20px;
+  /* height: 225px; */
+  padding: 20px 20px 0px 20px;
   color: white;
   border-radius: 10px;
   margin: 10px;
 }
 
 .App-title {
+  font-size: 2em;
+}
+
+.Lands-title {
   font-size: 1.5em;
 }
 
