@@ -34,7 +34,7 @@ export function calculateLandsFromSymbols(numLands, blueSymbols, redSymbols, gre
 				mostLandCount = numLandsJson[landType]
 				mostLandType = landType
 
-			} else if (numLandsJson[landType] != 0 && numLandsJson[landType] < leastLandCount) {
+			} else if (numLandsJson[landType] !== 0 && numLandsJson[landType] < leastLandCount) {
 
 				leastLandCount = numLandsJson[landType]
 				leastLandType = landType
@@ -42,7 +42,7 @@ export function calculateLandsFromSymbols(numLands, blueSymbols, redSymbols, gre
 		}
 
 		// Adjust the JSON property values until the total of rounded numbers matches # of lands in the deck
-		while (newSum != numLands) {
+		while (newSum !== numLands) {
 
 			// Incrementally reduce the number of lands for the most used mana symbol by 1 if the sum is too high
 			if (newSum > numLands) {
