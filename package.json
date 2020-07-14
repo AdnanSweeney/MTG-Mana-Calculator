@@ -8,13 +8,11 @@
     "react-dom": "^16.10.2",
     "react-scripts": "1.1.5"
   },
-  "homepage": "http://adnansweeney.github.io/MTG-Mana-Calculator/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && surge build https://manaculator.surge.sh"
   }
 }
