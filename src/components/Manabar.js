@@ -30,7 +30,7 @@ class ManaBar extends React.Component {
 				</div>
 
 				<div className="Flex-item">
-					<input id={this.props.colour} type="number" onChange={this.props.onNumSymbolsChange} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={this.props.tabIndex} />
+					<input id={this.props.colour} pattern="[0-9]*" inputmode="numeric" onChange={this.props.onNumSymbolsChange} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={this.props.tabIndex} />
 				</div>
 
 				<div className="Flex-item">

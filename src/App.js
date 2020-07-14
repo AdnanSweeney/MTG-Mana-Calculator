@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './assets/logo.svg';
 import card from './assets/card.svg';
 import flame from './assets/flame.svg';
 import skull from './assets/skull.svg';
@@ -18,7 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      
+
       totalLandCount: 17,
 
       blackSymbols: 0,
@@ -35,7 +34,7 @@ class App extends Component {
       whiteLands: 0,
       greyLands: 0
 
-      }
+    }
   }
 
   onNumSymbolsChange = (e) => {
@@ -54,22 +53,22 @@ class App extends Component {
     console.log("Input changed - " + id + "Symbols is now " + val);
     this.setState({ [id]: val }, () => {
 
-      let numLandsJson =  
-      
-        calculateLandsFromSymbols(  
+      let numLandsJson =
+
+        calculateLandsFromSymbols(
           this.state.totalLandCount,
           this.state.blueSymbols,
           this.state.redSymbols,
           this.state.greenSymbols,
           this.state.blackSymbols,
           this.state.whiteSymbols,
-          this.state.greySymbols 
-          );
+          this.state.greySymbols
+        );
 
-      this.setState( numLandsJson );
+      this.setState(numLandsJson);
 
       console.log(this.state);
-      
+
     });
 
   }
@@ -77,12 +76,15 @@ class App extends Component {
   render() {
 
     let { blackSymbols, blueSymbols, greenSymbols, redSymbols, whiteSymbols, greySymbols,
-          blackLands, blueLands, greenLands, redLands, whiteLands, greyLands } = this.state;
+      blackLands, blueLands, greenLands, redLands, whiteLands, greyLands } = this.state;
 
     return (
 
       <div className="App">
-
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+        />
         <header className="App-header">
 
           <img src={card} className="App-logo" alt="logo" />
@@ -91,20 +93,20 @@ class App extends Component {
 
           <br />
 
-          <div className={"Flex-row ActiveRow"} style={{justifyContent: "space-between", boxShadow: "0px 0px 0px 0px"}}>
+          <div className={"Flex-row ActiveRow"} style={{ justifyContent: "space-between", boxShadow: "0px 0px 0px 0px" }}>
             <h1 className="Lands-title"> Total Lands </h1>
-            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={1}/>
+            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={1} />
           </div>
 
         </header>
-       
+
         {/* We should be using a map here to create multiple manabars*/}
-        <Manabar tabIndex={2} colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands}/>
-        <Manabar tabIndex={3} colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands}/>
-        <Manabar tabIndex={4} colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands}/>
-        <Manabar tabIndex={5} colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands}/>
-        <Manabar tabIndex={6} colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands}/>
-        <Manabar tabIndex={7} colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands}/>
+        <Manabar tabIndex={2} colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands} />
+        <Manabar tabIndex={3} colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands} />
+        <Manabar tabIndex={4} colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands} />
+        <Manabar tabIndex={5} colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands} />
+        <Manabar tabIndex={6} colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands} />
+        <Manabar tabIndex={7} colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands} />
 
       </div>
     );
