@@ -79,35 +79,42 @@ class App extends Component {
       blackLands, blueLands, greenLands, redLands, whiteLands, greyLands } = this.state;
 
     return (
+      <div className="App-wrapper">
+        <div className="App">
+          <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+          />
+          <header className="App-header">
 
-      <div className="App">
-        <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
-        />
-        <header className="App-header">
+            <img src={card} className="App-logo" alt="logo" />
 
-          <img src={card} className="App-logo" alt="logo" />
+            <p className="App-title"> Mana Calculator </p>
 
-          <h1 className="App-title"> Mana Calculator </h1>
+            <img src={card} className="App-logo" alt="logo" />
 
-          <br />
+          </header>
 
-          <div className={"Flex-row ActiveRow"} style={{ justifyContent: "space-between", boxShadow: "0px 0px 0px 0px" }}>
-            <h1 className="Lands-title"> Total Lands </h1>
-            <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={1} />
+          <div className={"Flex-row ActiveRow"} style={{ boxShadow: "none" }}>
+            <div className="Flex-item Flex-mana-logo">
+              <h1 className="Lands-title"> Total Lands </h1>
+            </div>
+            <div className="Flex-item" >
+            </div>
+            <div className="Flex-item">
+              <input min="0" id="totalLandCount" type="number" onChange={this.onNumSymbolsChange} value={this.state.totalLandCount} className="Text-box" onFocus={e => { e.target.select() }} tabIndex={1} />
+            </div>
           </div>
 
-        </header>
+          {/* We should be using a map here to create multiple manabars*/}
+          <Manabar tabIndex={2} colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands} />
+          <Manabar tabIndex={3} colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands} />
+          <Manabar tabIndex={4} colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands} />
+          <Manabar tabIndex={5} colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands} />
+          <Manabar tabIndex={6} colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands} />
+          <Manabar tabIndex={7} colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands} />
 
-        {/* We should be using a map here to create multiple manabars*/}
-        <Manabar tabIndex={2} colour="blue" icon={water} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blueSymbols} landCount={blueLands} />
-        <Manabar tabIndex={3} colour="red" icon={flame} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={redSymbols} landCount={redLands} />
-        <Manabar tabIndex={4} colour="green" icon={tree} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greenSymbols} landCount={greenLands} />
-        <Manabar tabIndex={5} colour="black" icon={skull} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={blackSymbols} landCount={blackLands} />
-        <Manabar tabIndex={6} colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands} />
-        <Manabar tabIndex={7} colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands} />
-
+        </div>
       </div>
     );
   }
