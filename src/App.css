@@ -3,7 +3,7 @@ div {
 }
 
 html {
-  background-color: #7600ed;
+  background-color: #5F4BB6;
 }
 
 .App-wrapper {
@@ -36,7 +36,6 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #7600ed;
   padding: 20px;
   border-radius: 10px;
   margin: 10px;
@@ -52,6 +51,10 @@ h1 {
   font-size: 1.5em;
 }
 
+.Lands-title {
+  color: white;
+  font-size: 1.5em;
+}
 
 
 @keyframes App-logo-spin {
@@ -66,36 +69,36 @@ h1 {
   box-sizing: border-box;
   display: flex;
   height: 75px;
-  border-radius: 10px;
+  border-radius: 50px 20px 20px 50px;
   margin: 10px;
-  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-  opacity: 0.4;
-  border: 2px solid black;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
+  box-shadow: inset 46px 10px 124px -110px rgba(255,255,255,1);
+  border: 2px solid white;
 }
 
 .ActiveRow {
   opacity: 1;
-  border: 0px;
+  border: 2px solid white;
 }
 
 .greenRowClass {
-  background-color: hsla(88, 100%, 67%, 1);
+  background-color: #26A96C;
 }
 .redRowClass {
-  background-color: hsla(360, 85%, 65%, 1);
+  background-color: #F25A5A;
 }
 .blueRowClass {
-  background-color: hsla(207, 90%, 61%, 1);
+  background-color: #00A1E4;
 }
 .blackRowClass {
-  background-color: hsla(0, 0%, 19%, 1);
+  background-color: #303030;
 }
 .whiteRowClass {
-  background-color: hsla(0, 0%, 96%, 1);
-  border: 1px solid lightgray;
+  background-color: #F5F1E3;
+  border: 2px solid #303030;
 }
 .greyRowClass {
-  background-color: hsla(0, 0%, 37%, 1);
+  background-color:#6E7DAB;
 }
 
 .Flex-item {
