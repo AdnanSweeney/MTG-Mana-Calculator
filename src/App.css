@@ -36,7 +36,8 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   border-radius: 10px;
   margin: 10px;
   color: white;
@@ -49,11 +50,23 @@ h1 {
 
 .App-title {
   font-size: 1.5em;
+  text-shadow:
+  3px 3px 0 #000,
+-1px -1px 0 #000,  
+ 1px -1px 0 #000,
+ -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
 .Lands-title {
   color: white;
   font-size: 1.5em;
+  text-shadow:
+  3px 3px 0 #000,
+-1px -1px 0 #000,  
+ 1px -1px 0 #000,
+ -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
 
@@ -71,31 +84,32 @@ h1 {
   height: 75px;
   border-radius: 50px 20px 20px 50px;
   margin: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
-  box-shadow: inset 46px 10px 124px -110px rgba(255,255,255,1);
-  border: 2px solid white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
+  border: 2px solid #303030;
 }
 
 .ActiveRow {
   opacity: 1;
-  border: 2px solid white;
 }
 
 .greenRowClass {
-  background-color: #26A96C;
+  background-color: #2AB775;
 }
 .redRowClass {
   background-color: #F25A5A;
 }
 .blueRowClass {
-  background-color: #00A1E4;
+  background-color: #33C2FF;
 }
 .blackRowClass {
   background-color: #303030;
+  box-shadow: inset 2.5px 0px 0px 0px white,
+   inset 0px -2.5px 0px 0px white,
+    inset -2.5px 0px 0px 0px white,
+     inset 0px 2.5px 0px 0px white;
 }
 .whiteRowClass {
   background-color: #F5F1E3;
-  border: 2px solid #303030;
 }
 .greyRowClass {
   background-color:#6E7DAB;
@@ -108,7 +122,7 @@ h1 {
 }
 
 .Flex-mana-logo {
-  flex: 1 1 auto;
+  flex: 2 1 auto;
 }
 
 /* Manabar Items */
@@ -122,6 +136,7 @@ h1 {
   height: 30px;
   font-size: 25px;
   padding: 5px;
-  border-radius: 5px;
-  border: 1px solid grey;
+  border-radius: 7.5px;
+  border: 2px solid #303030;
+  outline: 0;
 }
