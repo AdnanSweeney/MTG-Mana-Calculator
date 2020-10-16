@@ -114,6 +114,14 @@ class App extends Component {
           <Manabar tabIndex={6} colour="white" icon={sun} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={whiteSymbols} landCount={whiteLands} />
           <Manabar tabIndex={7} colour="grey" icon={cube} onNumSymbolsChange={this.onNumSymbolsChange} numSymbols={greySymbols} landCount={greyLands} />
 
+
+          <p className="disclaimer"> 
+            
+            The graphics presented on this site about Magic: The Gathering including mana symbols is copyright Wizards of the Coast, LLC, a subsidiary of Hasbro, Inc.
+
+            This website is not produced by, endorsed by, supported by, or affiliated with Wizards of the Coast
+            
+          </p>
         </div>
       </div>
     );
