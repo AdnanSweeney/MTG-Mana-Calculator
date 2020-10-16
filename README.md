@@ -13,4 +13,6 @@ To deploy a new project with surge,
 `cd build` to get to that build directory
 `surge`
 
+We can do all this with `npm run deploy` if we add `"deploy": "npm run build && surge build https://<INSERT-URL>.surge.sh"` to our `package.json`
+
 Make sure that there is no homepage attribute in `package.json` as this will change the path of the assets within the new build!
