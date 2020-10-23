@@ -87,17 +87,17 @@ class App extends Component {
           />
           <header className="App-header">
 
-            <img src={card} className="App-logo" alt="logo" />
+            {/* <img src={card} className="App-logo" alt="logo" /> */}
 
             <h1 className="App-title"> Mana Calculator </h1>
 
-            <img src={card} className="App-logo" alt="logo" />
+            {/* <img src={card} className="App-logo" alt="logo" /> */}
 
           </header>
 
           <div className={"Flex-row ActiveRow"} style={{ boxShadow: "none", border: "none" }}>
-            <div className="Flex-item Flex-mana-logo">
-              <p className="Lands-title"> Total Lands </p>
+            <div className="Flex-item Flex-mana-logo" style={{display: "flex", justifyContent: "flex-end"}}>
+              <p className="Lands-title" style={{textAlign: "right"}}> Total Lands </p>
             </div>
             <div className="Flex-item" >
             </div>
