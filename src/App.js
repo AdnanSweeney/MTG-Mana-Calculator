@@ -87,7 +87,7 @@ class App extends Component {
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
           />
           <header className="App-header">
-            <h1 className="App-title"> Mana Calculator </h1>
+            <h1 className="App-title"> Manaculator </h1>
             <img src={whiteLogo} className="App-logo" alt="logo" />
           </header>
 
