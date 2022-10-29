@@ -93,7 +93,7 @@ class App extends Component {
 
           <div
             className={"Flex-row ActiveRow"}
-            style={{ boxShadow: "none", border: "none" }}
+            style={{ boxShadow: "none", borderColor: "transparent" }}
           >
             <div
               className="Flex-item Flex-mana-logo"
