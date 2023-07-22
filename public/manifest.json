@@ -5,7 +5,8 @@
     {
       "src": "whiteLogoBackgroundCircle.png",
       "sizes": "64x64 32x32 24x24 16x16 512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "start_url": "./index.html",
