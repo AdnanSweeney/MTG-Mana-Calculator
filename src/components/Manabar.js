@@ -1,60 +1,81 @@
 import React from "react";
 import "../App.css";
+import { styled } from "styled-components";
+import IncrementalInput from "./IncrementalInput";
 
-class ManaBar extends React.Component {
-  // getActiveClassName returns a string that add classes to the Flex Row base on landCount
-  getActiveClassName() {
-    // Begin with null so that when landCount is zero, we don't add any classes
-    let className = "";
+const Container = styled.div`
+  display: flex;
+  height: 80px;
+  border-radius: 50px 50px 50px 50px;
+  margin: 10px;
+  filter: drop-shadow(0px 8px 20px rgba(65, 208, 208, 0.15));
+  background-color: #282e50;
+  align-items: center;
+  width: 80%;
+  min-width: 300px;
+  padding: 10px 30px;
+  justify-content: space-between;
+`;
 
-    console.log("Props we receive from parent: " + this.props.numSymbols);
-    // If numSymbols > 1 then add CSS layers to that row
-    if (this.props.numSymbols) {
-      className = "ActiveRow";
-    }
+const TextBox = styled.input`
+  width: 50px;
+  height: 30px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #41d0d0;
+  text-shadow: 8px 8px 25px 0px rgba(0, 255, 255, 0.2);
+  border: none;
+`;
 
-    return className;
-  }
+const ReadOnlyTextBox = styled.input`
+  border: solid 3px #41d0d0;
+  border-radius: 25px;
+  box-shadow: 8px 8px 25px 0px rgba(0, 255, 255, 0.2);
+  width: 65px;
+  height: 70%;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #41d0d0;
+  text-shadow: 8px 8px 25px 0px rgba(0, 255, 255, 0.2);
+`;
 
-  render() {
-    return (
-      <div
-        className={
-          "Flex-row " +
-          this.props.colour +
-          "RowClass " +
-          this.getActiveClassName()
-        }
-      >
-        <div className="Flex-item Flex-mana-logo">
-          <img src={this.props.icon} className="Mana-logo" alt="icon" />
-        </div>
+const Icon = styled.img`
+  height: 50px;
+  filter: drop-shadow(0px 4px 10px rgba(0, 255, 255, 0.53));
+`;
 
-        <div className="Flex-item">
-          <input
-            id={this.props.colour}
-            pattern="[0-9]*"
-            inputMode="numeric"
-            onChange={this.props.onNumSymbolsChange}
-            className="Text-box"
-            onFocus={(e) => {
-              e.target.select();
-            }}
-            tabIndex={this.props.tabIndex}
-          />
-        </div>
+const ManaBar = ({
+  numSymbols,
+  colour,
+  tabIndex,
+  onNumSymbolsChange,
+  landCount,
+  icon,
+}) => {
+  return (
+    <Container>
+      <Icon src={icon} className="Mana-logo" alt="icon" />
+      <IncrementalInput>fdas</IncrementalInput>
+      <TextBox
+        id={colour}
+        inputMode="numeric"
+        onChange={onNumSymbolsChange}
+        value={numSymbols ?? 0}
+        onFocus={(e) => {
+          e.target.select();
+        }}
+        tabIndex={tabIndex}
+      />
 
-        <div className="Flex-item">
-          <input
-            className="Text-box"
-            type="text"
-            value={!this.props.numSymbols ? "" : this.props.landCount}
-            readOnly
-          />
-        </div>
-      </div>
-    );
-  }
-}
+      <ReadOnlyTextBox
+        type="text"
+        value={!numSymbols ? "" : landCount}
+        readOnly
+      />
+    </Container>
+  );
+};
 
 export default ManaBar;

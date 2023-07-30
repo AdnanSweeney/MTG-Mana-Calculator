@@ -2,8 +2,71 @@ div {
   /* border: 1px solid red; */
 }
 
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
 html {
-  background-color: #5f4bb6;
+  background-color: #0f1228;
 }
 
 .App-wrapper {
@@ -19,6 +82,10 @@ html {
   width: 100%;
   max-width: 500px;
   font-family: "Figtree", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -67,41 +134,8 @@ h1 {
 
 /* Manabar  */
 
-.Flex-row {
-  box-sizing: border-box;
-  display: flex;
-  height: 75px;
-  border-radius: 50px 20px 20px 50px;
-  margin: 10px;
-  box-shadow: 6px 7px 0px #303030;
-  border: 2px solid #303030;
-  align-items: center;
-}
-
 .ActiveRow {
   opacity: 1;
-}
-
-.greenRowClass {
-  background-color: #2ab775;
-}
-.redRowClass {
-  background-color: #f25a5a;
-}
-.blueRowClass {
-  background-color: #33c2ff;
-}
-.blackRowClass {
-  background-color: #303030;
-  box-shadow: inset 2.5px 0px 0px 0px white, inset 0px -2.5px 0px 0px white,
-    inset -2.5px 0px 0px 0px white, inset 0px 2.5px 0px 0px white,
-    6px 6px 0px #303030;
-}
-.whiteRowClass {
-  background-color: #f5f1e3;
-}
-.greyRowClass {
-  background-color: #6e7dab;
 }
 
 .Flex-item {
@@ -118,7 +152,7 @@ h1 {
 /* Manabar Items */
 
 .Mana-logo {
-  height: 45px;
+  /* height: 45px; */
 }
 
 .Text-box {
@@ -133,11 +167,4 @@ h1 {
 
 #totalLandCount {
   box-shadow: 6px 7px 0px #303030;
-}
-
-.disclaimer {
-  color: #917fde;
-  font-size: 0.5em;
-  margin: 5%;
-  margin-top: 10%;
 }
