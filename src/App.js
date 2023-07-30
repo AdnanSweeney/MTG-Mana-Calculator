@@ -48,7 +48,7 @@ const App = () => {
   });
 
   const onNumSymbolsChange = (e) => {
-    if (Number(e.target.value) != NaN && e.target.value >= 0) {
+    if (!Number.isNaN(e.target.value) && e.target.value >= 0) {
       // Parse the input field value as a number to allow mathematic operations
       let val = Number(e.target.value);
       let id = e.target.id;
@@ -59,21 +59,16 @@ const App = () => {
 
       // Update state then re-calculate required lands after state has changed
       console.log("Input changed - " + id + "Symbols is now " + val);
-      setState({ [id]: val }, () => {
-        let numLandsJson = calculateLandsFromSymbols(
-          state.totalLandCount,
-          state.blueSymbols,
-          state.redSymbols,
-          state.greenSymbols,
-          state.blackSymbols,
-          state.whiteSymbols,
-          state.greySymbols
-        );
 
-        setState(numLandsJson);
+      const numLandsJson = { ...state, [`${id}`]: val };
 
-        console.log(state);
-      });
+      console.log(numLandsJson);
+
+      console.log(calculateLandsFromSymbols(numLandsJson));
+
+      // setState(calculateLandsFromSymbols(numLandsJson));
+
+      console.log(state);
     }
   };
 
