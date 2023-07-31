@@ -27,7 +27,7 @@ const TextBox = styled.input`
   border: none;
 `;
 
-const ReadOnlyTextBox = styled.input`
+export const OutlinedInput = styled.input`
   border: solid 3px #41d0d0;
   border-radius: 25px;
   box-shadow: 8px 8px 25px 0px rgba(0, 255, 255, 0.2);
@@ -67,7 +67,7 @@ const ManaBar = ({
         tabIndex={tabIndex}
       />
 
-      <ReadOnlyTextBox
+      <OutlinedInput
         type="text"
         value={!numSymbols ? "" : landCount}
         readOnly

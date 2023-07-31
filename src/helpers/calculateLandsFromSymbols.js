@@ -7,16 +7,6 @@ export function calculateLandsFromSymbols(
   whiteSymbols,
   greySymbols
 ) {
-  console.log(
-    numLands,
-    blueSymbols,
-    redSymbols,
-    greenSymbols,
-    blackSymbols,
-    whiteSymbols,
-    greySymbols
-  );
-
   let totalSymbols =
     blueSymbols +
     redSymbols +
@@ -36,9 +26,6 @@ export function calculateLandsFromSymbols(
   };
 
   if (totalSymbols !== 0) {
-    console.log("blueSymbols", blueSymbols);
-    console.log("numLands", numLands);
-    console.log("totalSymbols", totalSymbols);
     // Populate land count object by looking at total land count to symbol count ratios
     numLandsJson.blueLands = Math.round(
       (blueSymbols * numLands) / totalSymbols
@@ -56,6 +43,8 @@ export function calculateLandsFromSymbols(
     numLandsJson.greyLands = Math.round(
       (greySymbols * numLands) / totalSymbols
     );
+
+    console.log("newNumLandsJson is ", numLandsJson);
 
     // To make sure the sum of rounded numbers doesn't exceed land count in deck, subtract
     // from the most populous land type required until the land count in deck is reached

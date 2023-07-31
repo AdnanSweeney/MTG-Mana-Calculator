@@ -12,6 +12,7 @@ import "./App.css";
 import Manabar from "./components/Manabar.js";
 import { calculateLandsFromSymbols } from "./helpers/calculateLandsFromSymbols";
 import { styled } from "styled-components";
+import { OutlinedInput } from "./components/Manabar";
 
 const Container = styled.div`
   display: flex;
@@ -55,14 +56,13 @@ const App = () => {
 
       console.log("Input changed - " + id + "Symbols is now " + val);
 
-      console.log("symbols is now ", { ...symbols, [`${id}Symbols`]: val });
       setSymbols({ ...symbols, [`${id}Symbols`]: val });
     }
   };
 
   const onTotalLandCountChange = (e) => {
     if (!Number.isNaN(e.target.value) && e.target.value >= 0) {
-      setTotalLandCount(e.target.val);
+      setTotalLandCount(e.target.value);
     }
   };
 
@@ -77,7 +77,7 @@ const App = () => {
       symbols.greySymbols
     );
 
-    console.log(numLands);
+    console.log("numlands", numLands);
 
     setLands(numLands);
   }, [totalLandCount, symbols]);
@@ -109,10 +109,10 @@ const App = () => {
           </div>
           <div className="Flex-item"></div>
           <div className="Flex-item">
-            <input
+            <OutlinedInput
               min="0"
               id="totalLandCount"
-              type="number"
+              inputMode="numeric"
               onChange={onTotalLandCountChange}
               value={totalLandCount}
               className="Text-box"
