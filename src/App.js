@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import card from "./assets/card.svg";
 import flame from "./assets/flame.svg";
 import skull from "./assets/skull.svg";
@@ -29,16 +29,17 @@ const Disclaimer = styled.p`
 `;
 
 const App = () => {
-  const [state, setState] = useState({
-    totalLandCount: 17,
-
+  const [symbols, setSymbols] = useState({
     blackSymbols: 0,
     blueSymbols: 0,
     greenSymbols: 0,
     redSymbols: 0,
     whiteSymbols: 0,
     greySymbols: 0,
+  });
 
+  const [totalLandCount, setTotalLandCount] = useState(17);
+  const [lands, setLands] = useState({
     blackLands: 0,
     blueLands: 0,
     greenLands: 0,
@@ -47,30 +48,39 @@ const App = () => {
     greyLands: 0,
   });
 
-  const onNumSymbolsChange = (e) => {
+  const onSymbolsChange = (e) => {
     if (!Number.isNaN(e.target.value) && e.target.value >= 0) {
-      // Parse the input field value as a number to allow mathematic operations
       let val = Number(e.target.value);
       let id = e.target.id;
 
-      if (id !== "totalLandCount") {
-        id += "Symbols";
-      }
-
-      // Update state then re-calculate required lands after state has changed
       console.log("Input changed - " + id + "Symbols is now " + val);
 
-      const numLandsJson = { ...state, [`${id}`]: val };
-
-      console.log(numLandsJson);
-
-      console.log(calculateLandsFromSymbols(numLandsJson));
-
-      // setState(calculateLandsFromSymbols(numLandsJson));
-
-      console.log(state);
+      console.log("symbols is now ", { ...symbols, [`${id}Symbols`]: val });
+      setSymbols({ ...symbols, [`${id}Symbols`]: val });
     }
   };
+
+  const onTotalLandCountChange = (e) => {
+    if (!Number.isNaN(e.target.value) && e.target.value >= 0) {
+      setTotalLandCount(e.target.val);
+    }
+  };
+
+  useEffect(() => {
+    const numLands = calculateLandsFromSymbols(
+      totalLandCount,
+      symbols.blueSymbols,
+      symbols.redSymbols,
+      symbols.greenSymbols,
+      symbols.blackSymbols,
+      symbols.whiteSymbols,
+      symbols.greySymbols
+    );
+
+    console.log(numLands);
+
+    setLands(numLands);
+  }, [totalLandCount, symbols]);
 
   return (
     <Container>
@@ -103,8 +113,8 @@ const App = () => {
               min="0"
               id="totalLandCount"
               type="number"
-              onChange={onNumSymbolsChange}
-              value={state.totalLandCount}
+              onChange={onTotalLandCountChange}
+              value={totalLandCount}
               className="Text-box"
               onFocus={(e) => {
                 e.target.select();
@@ -119,41 +129,41 @@ const App = () => {
           tabIndex={2}
           colour="blue"
           icon={water}
-          onNumSymbolsChange={onNumSymbolsChange}
-          numSymbols={state.blueSymbols}
-          landCount={state.blueLands}
+          onNumSymbolsChange={onSymbolsChange}
+          numSymbols={symbols.blueSymbols}
+          landCount={lands.blueLands}
         />
         <Manabar
           tabIndex={3}
           colour="red"
           icon={flame}
-          onNumSymbolsChange={onNumSymbolsChange}
-          numSymbols={state.redSymbols}
-          landCount={state.redLands}
+          onNumSymbolsChange={onSymbolsChange}
+          numSymbols={symbols.redSymbols}
+          landCount={lands.redLands}
         />
         <Manabar
           tabIndex={4}
           colour="green"
           icon={tree}
-          onNumSymbolsChange={onNumSymbolsChange}
-          numSymbols={state.greenSymbols}
-          landCount={state.greenLands}
+          onNumSymbolsChange={onSymbolsChange}
+          numSymbols={symbols.greenSymbols}
+          landCount={lands.greenLands}
         />
         <Manabar
           tabIndex={5}
           colour="black"
           icon={skull}
-          onNumSymbolsChange={onNumSymbolsChange}
-          numSymbols={state.blackSymbols}
-          landCount={state.blackLands}
+          onNumSymbolsChange={onSymbolsChange}
+          numSymbols={symbols.blackSymbols}
+          landCount={lands.blackLands}
         />
         <Manabar
           tabIndex={6}
           colour="white"
           icon={sun}
-          onNumSymbolsChange={onNumSymbolsChange}
-          numSymbols={state.whiteSymbols}
-          landCount={state.whiteLands}
+          onNumSymbolsChange={onSymbolsChange}
+          numSymbols={symbols.whiteSymbols}
+          landCount={lands.whiteLands}
         />
 
         <Disclaimer>
