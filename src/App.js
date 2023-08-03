@@ -62,7 +62,9 @@ const App = () => {
 
   const onTotalLandCountChange = (e) => {
     if (!Number.isNaN(e.target.value) && e.target.value >= 0) {
-      setTotalLandCount(e.target.value);
+      let val = Number(e.target.value);
+
+      setTotalLandCount(val);
     }
   };
 
