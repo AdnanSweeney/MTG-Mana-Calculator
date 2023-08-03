@@ -1,19 +1,20 @@
 import React from "react";
 import "../App.css";
 import { styled } from "styled-components";
+import { Row } from "../App";
 
 const Container = styled.div`
   display: flex;
   height: 80px;
+  align-items: center;
+  width: 70%;
+  min-width: 300px;
+  padding: 10px 25px 10px 20px;
+  justify-content: space-between;
+
   border-radius: 50px 50px 50px 50px;
-  margin: 10px;
   filter: drop-shadow(0px 8px 20px rgba(65, 208, 208, 0.15));
   background-color: #282e50;
-  align-items: center;
-  width: 80%;
-  min-width: 300px;
-  padding: 10px 30px;
-  justify-content: space-between;
 `;
 
 const TextBox = styled.input`
@@ -41,7 +42,7 @@ export const OutlinedInput = styled.input`
 `;
 
 const Icon = styled.img`
-  height: 50px;
+  height: 48px;
   filter: drop-shadow(0px 4px 10px rgba(0, 255, 255, 0.53));
 `;
 

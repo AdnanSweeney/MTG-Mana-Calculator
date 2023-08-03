@@ -86,6 +86,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .App-logo {
@@ -130,41 +131,4 @@ h1 {
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Manabar  */
-
-.ActiveRow {
-  opacity: 1;
-}
-
-.Flex-item {
-  flex: 3 1 auto;
-}
-
-.Flex-mana-logo {
-  flex: 2 1 auto;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-/* Manabar Items */
-
-.Mana-logo {
-  /* height: 45px; */
-}
-
-.Text-box {
-  width: 80px;
-  height: 30px;
-  font-size: 25px;
-  padding: 5px;
-  border-radius: 7.5px;
-  border: 2px solid #303030;
-  outline: 0;
-}
-
-#totalLandCount {
-  box-shadow: 6px 7px 0px #303030;
 }

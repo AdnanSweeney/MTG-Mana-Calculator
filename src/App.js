@@ -1,11 +1,9 @@
 import React, { Component, useState, useEffect } from "react";
-import card from "./assets/card.svg";
 import flame from "./assets/flame.svg";
 import skull from "./assets/skull.svg";
 import sun from "./assets/sun.svg";
 import tree from "./assets/tree.svg";
 import water from "./assets/water.svg";
-import cube from "./assets/cube.svg";
 import whiteLogo from "./assets/whiteLogo.png";
 
 import "./App.css";
@@ -27,6 +25,24 @@ const Disclaimer = styled.p`
   margin: 5%;
   margin-top: 10%;
   text-shadow: 8px 8px 25px 0px rgba(0, 255, 255, 0.2);
+`;
+
+const ManabarSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  height: 80px;
+  align-items: center;
+  width: 70%;
+  min-width: 300px;
+  padding: 10px 25px 10px 20px;
+  justify-content: space-between;
 `;
 
 const App = () => {
@@ -91,82 +107,73 @@ const App = () => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
-        <header className="App-header">
+        <Row>
+          <div />
           <h1 className="App-title"> Manaculator </h1>
           <img src={whiteLogo} className="App-logo" alt="logo" />
-        </header>
+        </Row>
 
-        <div
-          className={"Flex-row ActiveRow"}
-          style={{ boxShadow: "none", borderColor: "transparent" }}
-        >
-          <div
-            className="Flex-item Flex-mana-logo"
-            style={{ display: "flex", justifyContent: "flex-end" }}
-          >
-            <p className="Lands-title" style={{ textAlign: "right" }}>
-              {" "}
-              Total Lands{" "}
-            </p>
-          </div>
-          <div className="Flex-item"></div>
-          <div className="Flex-item">
-            <OutlinedInput
-              min="0"
-              id="totalLandCount"
-              inputMode="numeric"
-              onChange={onTotalLandCountChange}
-              value={totalLandCount}
-              className="Text-box"
-              onFocus={(e) => {
-                e.target.select();
-              }}
-              tabIndex={1}
-            />
-          </div>
-        </div>
+        <Row>
+          <div />
 
-        {/* We should be using a map here to create multiple manabars*/}
-        <Manabar
-          tabIndex={2}
-          colour="blue"
-          icon={water}
-          onNumSymbolsChange={onSymbolsChange}
-          numSymbols={symbols.blueSymbols}
-          landCount={lands.blueLands}
-        />
-        <Manabar
-          tabIndex={3}
-          colour="red"
-          icon={flame}
-          onNumSymbolsChange={onSymbolsChange}
-          numSymbols={symbols.redSymbols}
-          landCount={lands.redLands}
-        />
-        <Manabar
-          tabIndex={4}
-          colour="green"
-          icon={tree}
-          onNumSymbolsChange={onSymbolsChange}
-          numSymbols={symbols.greenSymbols}
-          landCount={lands.greenLands}
-        />
-        <Manabar
-          tabIndex={5}
-          colour="black"
-          icon={skull}
-          onNumSymbolsChange={onSymbolsChange}
-          numSymbols={symbols.blackSymbols}
-          landCount={lands.blackLands}
-        />
-        <Manabar
-          tabIndex={6}
-          colour="white"
-          icon={sun}
-          onNumSymbolsChange={onSymbolsChange}
-          numSymbols={symbols.whiteSymbols}
-          landCount={lands.whiteLands}
-        />
+          <p className="Lands-title" style={{ textAlign: "right" }}>
+            Total Lands
+          </p>
+          <OutlinedInput
+            min="0"
+            inputMode="numeric"
+            onChange={onTotalLandCountChange}
+            value={totalLandCount}
+            className="Text-box"
+            onFocus={(e) => {
+              e.target.select();
+            }}
+            tabIndex={1}
+          />
+        </Row>
+        <ManabarSection>
+          {/* We should be using a map here to create multiple manabars*/}
+          <Manabar
+            tabIndex={2}
+            colour="blue"
+            icon={water}
+            onNumSymbolsChange={onSymbolsChange}
+            numSymbols={symbols.blueSymbols}
+            landCount={lands.blueLands}
+          />
+          <Manabar
+            tabIndex={3}
+            colour="red"
+            icon={flame}
+            onNumSymbolsChange={onSymbolsChange}
+            numSymbols={symbols.redSymbols}
+            landCount={lands.redLands}
+          />
+          <Manabar
+            tabIndex={4}
+            colour="green"
+            icon={tree}
+            onNumSymbolsChange={onSymbolsChange}
+            numSymbols={symbols.greenSymbols}
+            landCount={lands.greenLands}
+          />
+          <Manabar
+            tabIndex={5}
+            colour="black"
+            icon={skull}
+            onNumSymbolsChange={onSymbolsChange}
+            numSymbols={symbols.blackSymbols}
+            landCount={lands.blackLands}
+          />
+          <Manabar
+            tabIndex={6}
+            colour="white"
+            icon={sun}
+            onNumSymbolsChange={onSymbolsChange}
+            numSymbols={symbols.whiteSymbols}
+            landCount={lands.whiteLands}
+          />
+        </ManabarSection>
 
         <Disclaimer>
           The graphics presented on this site about Magic: The Gathering
