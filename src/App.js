@@ -5,6 +5,7 @@ import sun from "./assets/sun.svg";
 import tree from "./assets/tree.svg";
 import water from "./assets/water.svg";
 import whiteLogo from "./assets/whiteLogo.png";
+import blueLogo from "./assets/blueLogo.svg";
 
 import "./App.css";
 import Manabar from "./components/Manabar.js";
@@ -65,14 +66,17 @@ const App = () => {
     greyLands: 0,
   });
 
-  const onSymbolsChange = (e) => {
-    if (!Number.isNaN(e.target.value) && e.target.value >= 0) {
-      let val = Number(e.target.value);
-      let id = e.target.id;
+  const updatePipCount = (colour, value) => {
+    if (!Number.isNaN(value) && value >= 0 && value < 1000) {
+      let number = Number(value);
 
-      console.log("Input changed - " + id + "Symbols is now " + val);
+      console.log("Input changed - " + colour + "Symbols is now " + number);
+      console.log(
+        "Symbols gonna change to " +
+          { ...symbols, [`${colour}Symbols`]: number }
+      );
 
-      setSymbols({ ...symbols, [`${id}Symbols`]: val });
+      setSymbols({ ...symbols, [`${colour}Symbols`]: number });
     }
   };
 
@@ -137,7 +141,7 @@ const App = () => {
             tabIndex={2}
             colour="blue"
             icon={water}
-            onNumSymbolsChange={onSymbolsChange}
+            onNumSymbolsChange={updatePipCount}
             numSymbols={symbols.blueSymbols}
             landCount={lands.blueLands}
           />
@@ -145,7 +149,7 @@ const App = () => {
             tabIndex={3}
             colour="red"
             icon={flame}
-            onNumSymbolsChange={onSymbolsChange}
+            onNumSymbolsChange={updatePipCount}
             numSymbols={symbols.redSymbols}
             landCount={lands.redLands}
           />
@@ -153,7 +157,7 @@ const App = () => {
             tabIndex={4}
             colour="green"
             icon={tree}
-            onNumSymbolsChange={onSymbolsChange}
+            onNumSymbolsChange={updatePipCount}
             numSymbols={symbols.greenSymbols}
             landCount={lands.greenLands}
           />
@@ -161,7 +165,7 @@ const App = () => {
             tabIndex={5}
             colour="black"
             icon={skull}
-            onNumSymbolsChange={onSymbolsChange}
+            onNumSymbolsChange={updatePipCount}
             numSymbols={symbols.blackSymbols}
             landCount={lands.blackLands}
           />
@@ -169,7 +173,7 @@ const App = () => {
             tabIndex={6}
             colour="white"
             icon={sun}
-            onNumSymbolsChange={onSymbolsChange}
+            onNumSymbolsChange={updatePipCount}
             numSymbols={symbols.whiteSymbols}
             landCount={lands.whiteLands}
           />
