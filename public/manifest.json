@@ -11,8 +11,8 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#5F4BB6",
-  "background_color": "#5F4BB6",
+  "theme_color": "#0F1228",
+  "background_color": "#0F1228",
   "description": "Calculate ratios for your manabase!",
   "categories": ["games", "utilities"],
   "edge_side_panel": {
