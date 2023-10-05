@@ -46,6 +46,12 @@ export const Row = styled.div`
   justify-content: space-between;
 `;
 
+export const Title = styled.div`
+  display: flex;
+  padding: 10px 25px 10px 20px;
+  align-items: center;
+`;
+
 const App = () => {
   const [symbols, setSymbols] = useState({
     blackSymbols: 0,
@@ -111,11 +117,10 @@ const App = () => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
-        <Row>
-          <div />
+        <Title>
           <h1 className="App-title"> Manaculator </h1>
           <img src={whiteLogo} className="App-logo" alt="logo" />
-        </Row>
+        </Title>
 
         <Row>
           <div />
