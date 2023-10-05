@@ -10,7 +10,7 @@ const Container = styled.div`
   height: 80px;
   align-items: center;
   width: 70%;
-  min-width: 300px;
+  min-width: 350px;
   padding: 10px 25px 10px 20px;
   justify-content: space-between;
 
@@ -51,6 +51,7 @@ const Icon = styled.img`
 const IconButton = styled.img`
   height: 25px;
   filter: drop-shadow(0px 4px 10px rgba(0, 255, 255, 0.2));
+  -webkit-tap-highlight-color: transparent;
   &:hover {
     filter: drop-shadow(0px 4px 10px rgba(0, 255, 255, 1.83));
     transform: scale(1.1, 1.1);

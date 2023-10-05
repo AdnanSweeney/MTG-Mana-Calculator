@@ -41,7 +41,6 @@ export const Row = styled.div`
   height: 80px;
   align-items: center;
   width: 70%;
-  min-width: 300px;
   padding: 10px 25px 10px 20px;
   justify-content: space-between;
 `;
@@ -50,6 +49,13 @@ export const Title = styled.div`
   display: flex;
   padding: 10px 25px 10px 20px;
   align-items: center;
+  padding-bottom: 0;
+`;
+
+export const TotalLands = styled(Row)`
+  justify-content: flex-end;
+  min-width: 350px;
+  gap: 20px;
 `;
 
 const App = () => {
@@ -122,9 +128,7 @@ const App = () => {
           <img src={whiteLogo} className="App-logo" alt="logo" />
         </Title>
 
-        <Row>
-          <div />
-
+        <TotalLands>
           <p className="Lands-title" style={{ textAlign: "right" }}>
             Total Lands
           </p>
@@ -139,7 +143,7 @@ const App = () => {
             }}
             tabIndex={1}
           />
-        </Row>
+        </TotalLands>
         <ManabarSection>
           {/* We should be using a map here to create multiple manabars*/}
           <Manabar
