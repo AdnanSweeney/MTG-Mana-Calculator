@@ -8,7 +8,7 @@ To modify this app, do the following:
 2. Navigate to the directory for the project and `npm install`
 3. Once changes are ready to be deployed, `cd MTG-Mana-Calculator` and then `npm run deploy` to create an optimized build, and then publish the changes with surge onto manaculator.surge.sh.
 
-To deploy a new project with surge, 
+To deploy a new project with surge,
 `npm run build` to create an optimized build
 `cd build` to get to that build directory
 `surge`
@@ -16,3 +16,5 @@ To deploy a new project with surge,
 We can do all this with `npm run deploy` if we add `"deploy": "npm run build && surge build https://<INSERT-URL>.surge.sh"` to our `package.json`
 
 Make sure that there is no homepage attribute in `package.json` as this will change the path of the assets within the new build!
+
+Test mobile with [ngrok](https://ngrok.com/docs/getting-started/). Get an account, set up an Auth Token on your machine, and run `ngrok http 3000` to generate a link so you can share a live version with your devices
